@@ -3,16 +3,12 @@
 import Image from "next/image";
 import { Balloon } from 'lucide-react';
 import { CircleCheck } from 'lucide-react';
-import { useEffect, useState } from "react";
-import { useData } from "./_contexts/dataContext/useData";
+import { useSDData } from "./queries/useSBData";
 export default function Home() {
 
+const {data, isLoading, error} = useSDData();
+console.table(data)
 
- 
-
-  const { data, isLoading} = useData()
-  console.log(data[0])
-  
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
